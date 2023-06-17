@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Thing, Props } from '../src';
+import { InputFloatLabel, InputProps } from '../src/InputFloatLabel';
 
 const meta: Meta = {
-  title: 'Welcome',
-  component: Thing,
+  title: 'Component/Form/Inputs/InputFloatLabel',
+  component: InputFloatLabel,
   argTypes: {
     children: {
       control: {
@@ -19,7 +19,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<Props> = args => <Thing {...args} />;
+const Template: Story<InputProps> = args => <InputFloatLabel {...args} />;
 
 export const Default = Template.bind({});
 
