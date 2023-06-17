@@ -1,5 +1,9 @@
 import { InputFloatLabel, InputProps } from './InputFloatLabel';
-import { formatZipcode, formatCurrency } from './functions/index';
+import {
+  formatZipcode,
+  formatCurrency,
+  FormatCurrencyProps,
+} from './functions/index';
 
-export { formatZipcode, formatCurrency };
+export { formatZipcode, formatCurrency, FormatCurrencyProps };
 export { InputFloatLabel, InputProps };

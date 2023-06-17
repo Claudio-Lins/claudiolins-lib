@@ -7,7 +7,14 @@ function formatZipcode(zipcode: any) {
 }
 
 // function currency
-function formatCurrency(amount: number, locale: string, currency: string) {
+
+export interface FormatCurrencyProps {
+  amount: number;
+  locale: string;
+  currency: string;
+}
+
+function formatCurrency({ amount, locale, currency }: FormatCurrencyProps) {
   return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currency,
