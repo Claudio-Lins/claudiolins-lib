@@ -6,5 +6,14 @@ function formatZipcode(zipcode: any) {
     .replace(/(\d{4})(\d)/, '$1-$2');
 }
 
+// function currency
+function formatCurrency(amount: number, locale: string, currency: string) {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currency,
+    minimumFractionDigits: 2,
+  }).format(amount);
+}
+
 // export
-export { formatZipcode };
+export { formatZipcode, formatCurrency };
