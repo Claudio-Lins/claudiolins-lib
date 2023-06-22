@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { InputSimple, InputSimpleProps } from '../src/InputSimple';
+import { InputSimple, InputSimpleProps } from '../src/components/InputSimple';
 
 const meta: Meta = {
   title: 'Component/Form/Inputs/InputSimple',

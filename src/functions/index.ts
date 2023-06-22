@@ -22,5 +22,37 @@ function formatCurrency({ amount, locale, currency }: FormatCurrencyProps) {
   }).format(amount);
 }
 
+// windowSize
+
+import { useState, useEffect } from 'react';
+
+export interface WindowSizeTypes {
+  width: number | undefined;
+  height: number | undefined;
+}
+
+function useWindowSize(): WindowSizeTypes {
+  const [windowSize, setWindowSize] = useState<WindowSizeTypes>({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowSize;
+}
+
 // export
-export { formatZipcode, formatCurrency };
+export { formatZipcode, formatCurrency, useWindowSize };
