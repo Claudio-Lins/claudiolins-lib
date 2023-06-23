@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode, forwardRef, Ref } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
@@ -7,17 +7,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variants?: 'primary' | 'secondary' | 'tertiary' | 'neutral';
 }
 
-export function Button({
-  disabled,
-  className,
-  children,
-  variants,
-  ...rest
-}: ButtonProps) {
-  return (
-    <button
-      disabled={disabled}
-      className={`
+export const Button = forwardRef(
+  (
+    { disabled, className, children, variants, ...rest }: ButtonProps,
+    ref: Ref<HTMLButtonElement>
+  ) => {
+    return (
+      <button
+        disabled={disabled}
+        className={`
         px-3 py-1 rounded-lg flex items-center gap-2
         ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
         ${variants === 'primary' &&
@@ -28,9 +26,11 @@ export function Button({
         ${variants === 'neutral' && 'p-2 border hover:shadow-sm hover:border-2'}
         ${className}
         `}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-}
+        {...rest}
+        ref={ref}
+      >
+        {children}
+      </button>
+    );
+  }
+);
